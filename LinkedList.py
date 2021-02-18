@@ -66,20 +66,22 @@ class LinkedList:
         print(a_node.data, end=" ")
         self.rec_display(a_node.next)
 
-    def remove(self, a_node):
+    def remove(self, a_node, val = None):
         """
         A remove method utilizing recursion
         """
-        if self.__head.data == a_node.get_data():
+        if val is None:
+            val = a_node.data
+        if self.__head.data == val:
             self.set_head(self.__head.next)
             return
         if a_node.next is None:
             return
-        elif a_node.next.data == a_node.get_data():
+        elif a_node.next.data == val:
             a_node.set_next(a_node.next.next)
             return
         else:
-            self.remove(a_node.next)
+            self.remove(a_node.next, val)
 
     def contains(self, a_node, val):
         if a_node.data == val:
