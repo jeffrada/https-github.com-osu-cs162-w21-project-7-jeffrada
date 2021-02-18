@@ -123,10 +123,12 @@ class LinkedList:
         """
         self.set_head(self._rev(self.__head))
 
-    def to_plain_list(self, a_node):
+    def to_plain_list(self, a_node = None):
         """
         to convert data into a list and returning it
         """
+        if a_node is None:
+            a_node = self.get_head
         if a_node.next is not None:
             lst = self.to_plain_list(a_node.next)
         elif a_node.next is None:
