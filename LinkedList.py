@@ -79,7 +79,7 @@ class LinkedList:
             a_node.set_next(a_node.next.next)
             return
         else:
-            self.remove(a_node.next, a_node.get_data())
+            self.remove(a_node.next)
 
     def contains(self, a_node, val):
         if a_node.data == val:
